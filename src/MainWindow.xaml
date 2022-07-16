@@ -1,0 +1,196 @@
+<Window
+	x:Class="Voltaire_Swapper.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:Voltaire_Swapper" xmlns:gif="http://wpfanimatedgif.codeplex.com" xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero"
+	Title="MainWindow"
+	Height="270"
+	Width="148"
+	WindowStyle="None"
+	ResizeMode="NoResize"
+	ShowInTaskbar="True"
+	AllowsTransparency="True"
+	Background="#FF000000"
+	WindowStartupLocation="CenterScreen"
+	Loaded="Window_Loaded"
+	MouseDown="Window_MouseDown">
+	<Grid
+		Name="MainGrid">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition
+				Width="*" />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="*" />
+		</Grid.RowDefinitions>
+		<StackPanel
+			Name="MainStackPanel"
+			Grid.Column="0"
+			Grid.Row="0">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="4*" />
+					<ColumnDefinition
+						Width="*" />
+				</Grid.ColumnDefinitions>
+				<TextBlock
+					Name="NameLbl"
+					Grid.Column="0"
+					Margin="5,3,0,0"
+					Text="#Voltaire"
+					Foreground="#FFFFFFFF"
+					FontWeight="Bold"
+					FontFamily="Tahoma"
+					FontSize="13"
+					TextAlignment="Left" />
+				<Button
+					Name="CloseBtn"
+					Foreground="#FFFF0000"
+					Grid.Column="1"
+					HorizontalContentAlignment="Right"
+					Margin="8,3,-2,0"
+					FontWeight="DemiBold"
+					Content="X"
+					ClickMode="Press"
+					Cursor="Hand"
+					Click="CloseBtn_Click">
+					<FrameworkElement.Style>
+						<Style
+							TargetType="{x:Type Button}">
+							<Setter
+								Property="Background"
+								Value="#00FFFFFF" />
+							<Setter
+								Property="Template">
+								<Setter.Value>
+									<ControlTemplate
+										TargetType="{x:Type Button}">
+										<Border
+											Background="{TemplateBinding Background}">
+											<ContentPresenter
+												HorizontalAlignment="Center"
+												VerticalAlignment="Center" />
+										</Border>
+									</ControlTemplate>
+								</Setter.Value>
+							</Setter>
+							<Style.Triggers>
+								<Trigger
+									Property="UIElement.IsMouseOver"
+									Value="True">
+									<Setter
+										Property="Background"
+										Value="#00FFFFFF" />
+								</Trigger>
+							</Style.Triggers>
+						</Style>
+					</FrameworkElement.Style>
+				</Button>
+			</Grid>
+			<Image
+				Name="PictureBox"
+				Stretch="Fill"
+				Margin="0,4,0,0"
+				Height="85"
+				Width="148"
+				p10:ImageBehavior.AnimatedSource="{Binding}" xmlns:p10="clr-namespace:WpfAnimatedGif;assembly=WpfAnimatedGif" />
+			<TextBox
+				Name="SessionTxt"
+				Margin="0,4,0,0"
+				Padding="2.5"
+				Background="#00FFFFFF"
+				Foreground="#FFFFFFFF"
+				BorderBrush="#FF808080"
+				Text="SessionID"
+				TextAlignment="Center"
+				FontSize="12"
+				FontWeight="SemiBold" />
+			<TextBox
+				Name="TargetTxt"
+				Margin="0,3,0,0"
+				Padding="2.5"
+				Background="#00FFFFFF"
+				Foreground="#FFFFFFFF"
+				BorderBrush="#FF808080"
+				Text="Target"
+				TextAlignment="Center"
+				FontSize="12"
+				FontWeight="SemiBold" />
+			<TextBox
+				Name="ThreadsTxt"
+				Margin="0,3,0,0"
+				Padding="2.5"
+				Background="#00FFFFFF"
+				Foreground="#FFFFFFFF"
+				BorderBrush="#FF808080"
+				Text="10"
+				TextAlignment="Center"
+				FontSize="12"
+				FontWeight="SemiBold"
+				TextChanged="ThreadsTxt_TextChanged" />
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="*" />
+					<ColumnDefinition
+						Width="*" />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="*" />
+				</Grid.RowDefinitions>
+				<TextBox
+					Name="GoodTxt"
+					Grid.Column="0"
+					Grid.Row="0"
+					Margin="0,3,0,0"
+					Padding="2.5"
+					Background="#00FFFFFF"
+					Foreground="#FF008000"
+					BorderBrush="#FF808080"
+					Text="0"
+					TextAlignment="Center"
+					FontSize="12"
+					FontWeight="SemiBold"
+					IsReadOnly="True" />
+				<TextBox
+					Name="BadTxt"
+					Grid.Column="1"
+					Grid.Row="0"
+					Margin="0,3,0,0"
+					Padding="2.5"
+					Background="#00FFFFFF"
+					Foreground="#FFFF0000"
+					BorderBrush="#FF808080"
+					Text="0"
+					TextAlignment="Center"
+					FontSize="12"
+					FontWeight="SemiBold"
+					IsReadOnly="True" />
+			</Grid>
+			<Button
+				Name="StartBtn"
+				Style="{DynamicResource StartBtnStyle}"
+				Content="Start"
+				Padding="5"
+				Background="#00FFFFFF"
+				Foreground="#FFFFFFFF"
+				BorderBrush="#FF808080"
+				FontSize="12"
+				FontWeight="SemiBold"
+				Margin="0,3,0,0"
+				Click="StartBtn_Click" />
+			<TextBox
+				Name="RSTxt"
+				Margin="0,3,0,0"
+				Padding="2.5"
+				Background="#00FFFFFF"
+				Foreground="#FFFFFFFF"
+				BorderBrush="#FF808080"
+				Text="R/S: 0"
+				TextAlignment="Center"
+				FontSize="12"
+				FontWeight="SemiBold"
+				IsReadOnly="True" />
+		</StackPanel>
+	</Grid>
+</Window>
