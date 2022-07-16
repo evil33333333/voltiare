@@ -1,0 +1,13 @@
+SwapperName || #Voltaire Swapper
+Bio || Voltaire Swapper On Top ..
+MsgBox || Moved : @
+ImagePath || aa.gif
+Color || BLACK
+Webhook || VI
+
+Colors:
+Black
+White
+blue
+purple
+gray
